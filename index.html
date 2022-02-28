@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Building a Technical Documentation Page</title>
+  <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+<main id="main-doc">
+
+  <nav id="navbar">
+    <header>
+      <h1>Media Query CSS</h1>
+    </header>
+    <ul>
+      <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+      <li><a class="nav-link" href="#Syntax">Syntax</a></li>
+      <li><a class="nav-link" href="#@_Media_Rule">@ Media Rule</a></li>
+      <li><a class="nav-link" href="#Parenthesis">Parenthesis</a></li>
+      <li><a class="nav-link" href="#Media_Types">Media Types</a></li>
+      <li><a class="nav-link" href="#Logical_Operators">Logical Operators</a></li>
+      <li><a class="nav-link" href="#Breakpoints">Breakpoints</a></li>
+      <li><a class="nav-link" href="#Common_Breakpoints:_Is_there_a_Standard_Resolution?">Common Breakpoints: Is there a Standard Resolution?</a></li>
+      <li><a class="nav-link" href="#Specifications">Specifications</a></li>
+
+    </ul>
+  </nav>
+  <!--   <h1>How to do this</h1> -->
+  <section class="main-section" id="Introduction">
+    <header>
+      <h2>Introduction</h2>
+    </header>
+
+    <p>
+      The CSS3 implementation put in place a new feature specially designed to work with "Responsive Web Design", the "Media Query".
+    </p>
+    <p>
+      Media query makes a webpage adapt its layout to different screen sizes and media types.
+    </p>
+    <p>
+      Nowadays, CSS Media Queries are one of the most important parts of the Responsive Design.</p>
+
+  </section>
+  <section class="main-section" id="Syntax">
+    <header>
+      <h2>Syntax</h2>
+    </header>
+    <p>Targeting different media types and a variety of conditions, also called as "breakpoints", if the specified condition and/or media types meet, the CSS rules inside the media query will be executed, otherwise, they won’t.</p>
+    <p>The Media Query syntax is as follows:</p>
+    <p>
+      <code>
+        @media media type and (condition: breakpoint) {
+        // CSS rules
+        }
+      </code>
+
+    </p>
+  </section>
+  <section class="main-section" id="@_Media_Rule">
+    <header>
+      <h2>@ Media Rule</h2>
+    </header>
+    <p>The Media Query is initialized as follows:</p>
+    <p><code>@media () {
+        // CSS rules
+        }</code></p>
+    <p>A Media Query is must called with a "@media" rule and, at least one condition being specified between the parenthesis.</p>
+  </section>
+  <section class="main-section" id="Parenthesis">
+    <header>
+      <h2>Parenthesis</h2>
+    </header>
+    <p>All the conditions/breakpoints must be set inside the parenthesis</p>
+    <p> For example, to apply a larger font size for small devices, the condition set would have to check the maximum width of the device:</p>
+    <p>
+      <code>
+        @media (max-width: 480px) {
+        .text {
+        font-size: 16px;
+        }
+        }
+      </code>
+    </p>
+
+    <p>The code above will set the font-size to 16px when the device has a maximum width of 480px or less.</p>
+  </section>
+  <section class="main-section" id="Media_Types">
+    <header>
+      <h2>Media Types</h2>
+    </header>
+    <p>Media types describe the general category of a device. Except when using the not or only logical operators, the media type is optional and the all type is implied.</p>
+
+    <h3>all</h3>
+    <p>Suitable for all devices.</p>
+    <p><code>@media (max-width: 480px) {.text {font-size: 16px;}}</code></p>
+
+    <h3>print</h3>
+    <p>Intended for paged material and documents viewed on a screen in print preview mode.</p>
+    <p><code>@media print {body { font-size: 10pt; }}</code></p>
+
+    <h3>screen</h3>
+    <p>Intended primarily for screens.</p>
+    <p><code>@media screen {body { font-size: 13px; }}</code></p>
+
+  </section>
+
+  <section class="main-section" id="Logical_Operators">
+    <header>
+      <h2>Logical Operators</h2>
+    </header>
+    <p>
+      The logical operators not, and, and only can be used to compose a complex media query. You can also combine multiple media queries into a single rule by separating them with commas.</p>
+
+    <h3>and</h3>
+    <p>Used for combining multiple media features together into a single media query, requiring each chained feature to return true for the query to be true. It is also used for joining media features with media types.</p>
+
+    <h3>not</h3>
+    <p>Used to negate a media query, returning true if the query would otherwise return false. If present in a comma-separated list of queries, it will only negate the specific query to which it is applied. If you use the not operator, you must also specify a media type.</p>
+
+    <h3>only</h3>
+    <p>Applies a style only if an entire query matches. It is useful for preventing older browsers from applying selected styles. When not using only, older browsers would interpret the query screen and (max-width: 500px) as screen, ignoring the remainder of the query, and applying its styles on all screens. If you use the only operator, you must also specify a media type.</p>
+
+    <h3>, (comma)</h3>
+    <p>Commas are used to combine multiple media queries into a single rule. Each query in a comma-separated list is treated separately from the others Thus, if any of the queries in a list is true, the entire media statement returns true. In other words, lists behave like a logical or operator.</p>
+
+    <p><code>@media screen, print {
+        body { line-height: 1.2; }
+        }</code></p>
+
+    <p><code>@media only screen
+        and (min-width: 320px)
+        and (max-width: 480px)
+        and (resolution: 150dpi) {
+        body { line-height: 1.4; }
+        }</code></p>
+
+  </section>
+
+  <section class="main-section" id="Breakpoints">
+    <header>
+      <h2>Breakpoints</h2>
+    </header>
+    <p>A breakpoint is a key to determine when to change the layout and adapt the new rules inside the media queries.
+    <p><code>
+        @media (max-width: 480px) {
+        .text {
+        font-size: 16px;
+        }
+        }</code></p>
+    On the above code, the breakpoint is the width at the maximum point of 480px. The media query will set or overwrite the new class, if the width of a device is smaller than 480px.</p>
+
+  </section>
+
+  <section class="main-section" id="Common_Breakpoints:_Is_there_a_Standard_Resolution?">
+    <header>
+      <h2>Common Breakpoints: Is there a Standard Resolution?</h2>
+    </header>
+
+    <p>There is not a standard resolution for devices due to a ton of devices on the market, therefore, there is not also standard breakpoints. Having said that, there are some commonly used breakpoints in daily programming, which are:</p>
+
+    <li>320px — 480px: Mobile devices</li>
+    <li>481px — 768px: iPads, Tablets</li>
+    <li>769px — 1024px: Small screens, laptops</li>
+    <li>1025px — 1200px: Desktops, large screens</li>
+    <li>1201px and more —  Extra large screens, TV</li>
+
+  </section>
+  <section class="main-section" id="Specifications">
+    <header>
+      <h2>Specifications</h2>
+    </header>
+    <p><a target="_blank" href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media">@media</a></p>
+    <p><a target="_blank" href="https://drafts.csswg.org/mediaqueries/#media-descriptor-table">Media Queries Level 4 (Media Queries 4)
+        <br># media-descriptor-table</a></p>
+    <p><a target="_blank" href="https://drafts.csswg.org/css-conditional-3/#at-media">CSS Conditional Rules Module Level 3 (CSS Conditional 3)
+        <br># at-media</a></p>
+
+    <p><a target="_blank" href="https://www.freecodecamp.org/news/css-media-queries-breakpoints-media-types-standard-resolutions-and-more/">Media Query CSS Tutorial – Standard Resolutions, CSS Breakpoints, and Target Phone Sizes
+      </a></p>
+    <br><br><br><br>
+  </section>
+
+</main>
+</body>
+</html>
